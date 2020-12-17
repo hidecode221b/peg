@@ -377,7 +377,7 @@ PEResult::Code PESolver::integrateTrialSolutionAlongY(gsl_vector_complex* u, gsl
 
 PEResult::Code PESolver::integrateTrialSolutionAlongY(double *w, double yStart, double yEnd) {
 	// define ode solving system, with our function to evaluate dw/dy, the Jacobian, and 8*N_+4 components.
-	gsl_odeiv2_system odeSys = {odeFunctionCB, odeJacobianCB, eightNp4_, this};
+	gsl_odeiv2_system odeSys = {odeFunctionCB, odeJacobianCB, (unsigned long)eightNp4_, this};
 
 	// initial starting step in y: choose grating height / 200.
 	double hStart = (yEnd - yStart)/200;
