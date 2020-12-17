@@ -3,12 +3,12 @@ QT     -= gui core
 CONFIG -= app_bundle
 TARGET = pegSerial
 
-QMAKE_CXXFLAGS += -c -g -Wall -fopenmp
-QMAKE_LFLAGS += -fopenmp
+QMAKE_CXXFLAGS += -Xclang -fopenmp
+QMAKE_LFLAGS += -lomp
 
-INCLUDEPATH += /Users/mboots/dev/gsl-install/include
+INCLUDEPATH += /usr/local/include
 
-LIBS += -L/Users/mboots/dev/gsl-install/lib -lgsl -lgslcblas
+LIBS += -L/usr/local/lib -lgsl -lgslcblas
 
 HEADERS += src/PEG.h \
 	src/PESolver.h \
